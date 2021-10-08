@@ -13,7 +13,7 @@ namespace fictivusforum_topicservice.Controllers
     public class SearchController : Controller
     {
        [HttpGet]
-       [Route("getpostsbyterm")]
+       [Route("getpostsbyterm/{searchterm}")]
         public async Task<ActionResult<List<ResponseDTO>>> FindMessages(string searchterm)
         {
             /*
