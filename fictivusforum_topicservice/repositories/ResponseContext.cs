@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using fictivusforum_topicservice.DataModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace fictivusforum_topicservice.repositories
@@ -13,7 +14,7 @@ namespace fictivusforum_topicservice.repositories
         {
         }
 
-        public DbSet<> Posts { get; set; }
+        public DbSet<Response> Posts { get; set; }
 
     }
 }
