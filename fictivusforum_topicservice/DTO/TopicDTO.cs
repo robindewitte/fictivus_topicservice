@@ -10,7 +10,8 @@ namespace fictivusforum_topicservice.DTO
         #region fields
         private string username;
         private string title;
-        private DateTime date;
+        private DateTime timeOfPosting;
+        private string subject;
         #endregion
 
         #region constructors
@@ -20,11 +21,12 @@ namespace fictivusforum_topicservice.DTO
 
         }
 
-        public TopicDTO(string username, string title, DateTime date)
+        public TopicDTO(string username, string title, DateTime date, string subject)
         {
-            this.Username = username;
-            this.Title = title;
-            this.Date = date;
+            Username = username;
+            Title = title;
+            TimeOfPosting = date;
+            Subject = subject;
         }
         #endregion
 
@@ -32,7 +34,8 @@ namespace fictivusforum_topicservice.DTO
 
         public string Username { get => username; set => username = value; }
         public string Title { get => title; set => title = value; }
-        public DateTime Date { get => date; set => date = value; }
+        public DateTime TimeOfPosting { get => timeOfPosting; set => timeOfPosting = value; }
+        public string Subject { get => subject; set => subject = value; }
 
 
         #endregion

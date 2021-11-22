@@ -8,13 +8,15 @@ namespace fictivusforum_topicservice.DataModels
 {
     public class Response
     {
-        #region fields
+        #region properties
         [Key]
-        public Guid id;
-        public string topicTitle;
-        public string userName;
-        public DateTime timeOfPosting;
-        public string content;
+        public Guid Id { get; set; }
+
+        public string TopicTitle { get; set; }
+        public string UserName { get; set; }
+        public DateTime TimeOfPosting { get; set; }
+        public string Content { get; set; }
+        public string TopicSubject { get; set; }
         #endregion
         #region constructors
         public Response()
@@ -22,9 +24,13 @@ namespace fictivusforum_topicservice.DataModels
 
         }
 
-        public Response(string topicTitle, string userName, DateTime timeOfPosting, string content)
+        public Response(string topicTitle, string userName, DateTime timeOfPosting, string content, string topicSubject)
         {
-
+            TopicTitle = topicTitle;
+            UserName = userName;
+            TimeOfPosting = timeOfPosting;
+            Content = content;
+            TopicSubject = topicSubject;
         }
         #endregion
     }

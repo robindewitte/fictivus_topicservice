@@ -12,6 +12,7 @@ namespace fictivusforum_topicservice.DTO
         private string userName;
         private DateTime timeOfPosting;
         private string content;
+        private string topicSubject;
         #endregion
         #region constructors
         public ResponseDTO()
@@ -19,7 +20,7 @@ namespace fictivusforum_topicservice.DTO
 
         }
 
-        public ResponseDTO(string topicTitle, string userName, DateTime timeOfPosting, string content)
+        public ResponseDTO(string topicTitle, string userName, DateTime timeOfPosting, string content, string topicSubject)
         {
 
         }
@@ -30,6 +31,7 @@ namespace fictivusforum_topicservice.DTO
         public string UserName { get => userName; set => userName = value; }
         public DateTime TimeOfPosting { get => timeOfPosting; set => timeOfPosting = value; }
         public string Content { get => content; set => content = value; }
+        public string TopicSubject { get => topicSubject; set => topicSubject = value; }
         #endregion
     }
 }
