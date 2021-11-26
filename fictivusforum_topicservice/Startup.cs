@@ -1,5 +1,7 @@
+using fictivusforum_topicservice.repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +34,10 @@ namespace fictivusforum_topicservice
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "fictivusforum_topicservice", Version = "v1" });
             });
+            var connection = Configuration.GetConnectionString("TopicContext");
+            services.AddDbContext<TopicContext>(options =>
+            options.UseSqlServer(connection)
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
