@@ -56,7 +56,7 @@ namespace fictivusforum_topicservice.Controllers
 
         [HttpGet]
         [Route("GetMemePostsBySearchTerm/{searchTerm}")]
-        public async Task<ActionResult<ICollection<TopicDTO>>> GetMemePostsByTerm(string searchTerm)
+        public async Task<ActionResult<ICollection<ResponseDTO>>> GetMemePostsByTerm(string searchTerm)
         {
             List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "meme" && b.Content == searchTerm).ToListAsync();
             List<ResponseDTO> returnPosts = convertToResponseDTO(posts);
@@ -77,7 +77,7 @@ namespace fictivusforum_topicservice.Controllers
 
         [HttpGet]
         [Route("GetDiscussionPostsBySearchTerm/{searchTerm}")]
-        public async Task<ActionResult<ICollection<TopicDTO>>> GetDiscussionPostsByTerm(string searchTerm)
+        public async Task<ActionResult<ICollection<ResponseDTO>>> GetDiscussionPostsByTerm(string searchTerm)
         {
             List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "discussion" && b.Content == searchTerm).ToListAsync();
             List<ResponseDTO> returnPosts = convertToResponseDTO(posts);
@@ -97,7 +97,7 @@ namespace fictivusforum_topicservice.Controllers
 
         [HttpGet]
         [Route("GetModReleasesPostsBySearchTerm/{searchTerm}")]
-        public async Task<ActionResult<ICollection<TopicDTO>>> GetModReleasesPostsByTerm(string searchTerm)
+        public async Task<ActionResult<ICollection<ResponseDTO>>> GetModReleasesPostsByTerm(string searchTerm)
         {
             List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "modreleases" && b.Content == searchTerm).ToListAsync();
             List<ResponseDTO> returnPosts = convertToResponseDTO(posts);
@@ -134,7 +134,7 @@ namespace fictivusforum_topicservice.Controllers
             List<TopicDTO> toReturn = new List<TopicDTO>();
             foreach (Topic entry in input)
             {
-                TopicDTO toAdd = new TopicDTO(entry.Title, entry.UserName, entry.TimeOfPosting, entry.Subject);
+                TopicDTO toAdd = new TopicDTO(entry.UserName, entry.Title, entry.TimeOfPosting, entry.Subject);
                 toReturn.Add(toAdd);
             }
             return toReturn;
