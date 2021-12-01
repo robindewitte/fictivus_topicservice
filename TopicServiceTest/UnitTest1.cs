@@ -18,6 +18,7 @@ using System.Linq;
 
 namespace TopicServiceTest
 {
+    //needs database
     public class UnitTest1
     {
         private readonly TestServer _server;
