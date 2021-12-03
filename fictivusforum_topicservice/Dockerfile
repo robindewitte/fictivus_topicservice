@@ -6,14 +6,14 @@ EXPOSE 5003
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["fictivusforum_topicservice.csproj", "."]
-RUN dotnet restore "fictivusforum_topicservice.csproj"
+COPY ["fictivusforum_topicservice/fictivusforum_topicservice.csproj", "."]
+RUN dotnet restore "fictivusforum_topicservice/fictivusforum_topicservice.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "fictivusforum_topicservice.csproj" -c Release -o /app/build
+WORKDIR "/src/fictivusforum_topicservice"
+RUN dotnet build "fictivusforum_topicservice/fictivusforum_topicservice.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "fictivusforum_topicservice.csproj" -c Release -o /app/publish
+RUN dotnet publish "fictivusforum_topicservice/fictivusforum_topicservice.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
