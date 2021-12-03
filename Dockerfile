@@ -5,11 +5,11 @@ WORKDIR /app
 EXPOSE 5003
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
+WORKDIR /src/fictivusforum_topicservice
 COPY ["fictivusforum_topicservice/fictivusforum_topicservice.csproj", "."]
 RUN dotnet restore "fictivusforum_topicservice/fictivusforum_topicservice.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/fictivusforum_topicservice"
 RUN dotnet build "fictivusforum_topicservice/fictivusforum_topicservice.csproj" -c Release -o /app/build
 
 FROM build AS publish
