@@ -21,7 +21,7 @@ namespace fictivusforum_topicservice
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>().
-                    UseUrls("http://*:5004");
+                    UseUrls("http://*:5003");
                 });
     }
 }
