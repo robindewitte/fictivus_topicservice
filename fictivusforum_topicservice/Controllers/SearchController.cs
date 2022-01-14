@@ -49,7 +49,7 @@ namespace fictivusforum_topicservice.Controllers
         [Route("GetMemeTopics")]
         public async Task<ActionResult<ICollection<TopicDTO>>> GetMemeTopics()
         {
-            List<Topic> posts = await _context.Topics.Where(b => b.Subject == "meme").ToListAsync();
+            List<Topic> posts = await _context.Topics.Where(b => b.Subject == "memes").ToListAsync();
             List<TopicDTO> returnPosts = convertToTopicDTO(posts);
             return Ok(returnPosts);
         }
@@ -58,7 +58,7 @@ namespace fictivusforum_topicservice.Controllers
         [Route("GetMemePostsBySearchTerm/{searchTerm}")]
         public async Task<ActionResult<ICollection<ResponseDTO>>> GetMemePostsByTerm(string searchTerm)
         {
-            List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "meme" && b.Content == searchTerm).ToListAsync();
+            List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "memes" && b.Content == searchTerm).ToListAsync();
             List<ResponseDTO> returnPosts = convertToResponseDTO(posts);
             return Ok(returnPosts);
         }
@@ -70,7 +70,7 @@ namespace fictivusforum_topicservice.Controllers
         [Route("GetDiscussionTopics")]
         public async Task<ActionResult<ICollection<TopicDTO>>> GetDiscussionTopics()
         {
-            List<Topic> posts = await _context.Topics.Where(b => b.Subject == "discussion").ToListAsync();
+            List<Topic> posts = await _context.Topics.Where(b => b.Subject == "discussie").ToListAsync();
             List<TopicDTO> returnPosts = convertToTopicDTO(posts);
             return Ok(returnPosts);
         }
@@ -79,7 +79,7 @@ namespace fictivusforum_topicservice.Controllers
         [Route("GetDiscussionPostsBySearchTerm/{searchTerm}")]
         public async Task<ActionResult<ICollection<ResponseDTO>>> GetDiscussionPostsByTerm(string searchTerm)
         {
-            List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "discussion" && b.Content == searchTerm).ToListAsync();
+            List<Response> posts = await _context.Responses.Where(b => b.TopicSubject == "discussie" && b.Content == searchTerm).ToListAsync();
             List<ResponseDTO> returnPosts = convertToResponseDTO(posts);
             return Ok(returnPosts);
         }
